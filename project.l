@@ -32,3 +32,29 @@ INTEREST   printf("interest_type TOKEN\n");
 [0-9]+   printf("age_literal TOKEN\n");
 $[0-9]+(.[0-9]+)?    printf("income_literal TOKEN\n");
 ([\"][a-zA-Z]+[\"][,]?[ \t]*)* printf("interest_literal TOKEN\n");
+
+
+\<   printf("less_symbol TOKEN\n");
+>   printf("greater_symbol TOKEN\n");
+\{   printf("oparenthesis TOKEN\n");
+\}   printf("clparenthesis TOKEN\n");
+\(   printf("obracket TOKEN\n");
+\)   printf("clbracket TOKEN\n");
+\[   printf("opsqbracket TOKEN\n");
+\]   printf("clsqbracket TOKEN\n");
+\"   printf("quotation_symbol TOKEN\n");
+_   printf("underscore TOKEN\n");
+@   printf("at_symbol TOKEN\n");
+=   printf("assign_symbol TOKEN\n");
+,   printf("comma_symbol TOKEN\n");
+AND   printf("and_operator TOKEN\n");
+OR   printf("or_operator TOKEN\n");
+==   printf("equality_symbol TOKEN\n");
+\<=   printf("less_or_equal TOKEN\n");
+>=   printf("greater_or_equal TOKEN\n");
+\*   printf("multiply_operator TOKEN\n");
+\+   printf("add_operator TOKEN\n");
+-   printf("subtract_operator TOKEN\n");
+\/   printf("divide_operator TOKEN\n");
+
+%%
