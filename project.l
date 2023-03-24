@@ -3,58 +3,61 @@
 %}
 
 %%
-COMMENTTEST /* printf("This is a test comment!\n");*/
+COMMENTTEST /* return This is a test comment!;*/
 
 
-IF   printf("if_keyword\n");
-ELSE   printf("else_keyword\n");
-WHILE   printf("while_keyword\n");
-WRITE   printf("write_keyword\n");
-LINK   printf("link_keyword\n");
+CONTACT   return contact_keyword;
+IF   return if_keyword;
+ELSE   return else_keyword;
+WHILE   return while_keyword;
+WRITE   return write_keyword;
+LINK   return link_keyword;
 
 
-NAME   printf("name_type\n");
-TEL   printf("tel_type\n");
-EMAIL   printf("email_type\n");
-GENDER   printf("gender_type\n");
-AGE   printf("age_type\n");
-STATE   printf("state_type\n");
-COUNTRY   printf("country_type\n");
-JOB   printf("job_type\n");
-INCOME   printf("income_type\n");
-INTEREST   printf("interest_type\n");
+NAME   return name_type;
+TEL   return tel_type;
+EMAIL   return email_type;
+GENDER   return gender_type;
+AGE   return age_type;
+STATE   return state_type;
+COUNTRY   return country_type;
+JOB   return job_type;
+INCOME   return income_type;
+INTEREST   return interest_type;
 
 
-\"[M|F]\"    printf("gender_literal\n");
-\"[a-zA-Z]+([ \t]*[a-zA-Z]*)*\"   printf("string_literal\n");
-\"[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z]+.[a-zA-Z]+\"   printf("email_literal\n");
-\"[0-9]{10}\"   printf("tel_literal\n");
-[0-9]+   printf("age_literal\n");
-$[0-9]+(.[0-9]+)?    printf("income_literal\n");
-([\"][a-zA-Z]+[\"][,]?[ \t]*)* printf("interest_literal\n");
+\"[M|F]\"    return gender_literal;
+\"[a-zA-Z]+([ \t]*[a-zA-Z]*)*\"   return string_literal;
+[a-zA-Z]+   return list_literal;
+\"[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z]+.[a-zA-Z]+\"   return email_literal;
+\"[0-9]{10}\"   return tel_literal;
+[0-9]+   return int_literal;
+$[0-9]+(.[0-9]+)?    return income_literal;
+([\"][a-zA-Z]+[\"][,]?[ \t]*)*   return interest_literal;
 
 
-\<   printf("less_symbol\n");
->   printf("greater_symbol\n");
-\{   printf("oparenthesis\n");
-\}   printf("clparenthesis\n");
-\(   printf("obracket\n");
-\)   printf("clbracket\n");
-\[   printf("opsqbracket\n");
-\]   printf("clsqbracket\n");
-\"   printf("quotation_symbol\n");
-_   printf("underscore\n");
-@   printf("at_symbol\n");
-=   printf("assign_symbol\n");
-,   printf("comma_symbol\n");
-AND   printf("and_operator\n");
-OR   printf("or_operator\n");
-==   printf("equality_symbol\n");
-\<=   printf("less_or_equal\n");
->=   printf("greater_or_equal\n");
-\*   printf("multiply_operator\n");
-\+   printf("add_operator\n");
--   printf("subtract_operator\n");
-\/   printf("divide_operator\n");
+
+\<   return less_symbol;
+>   return greater_symbol;
+\{   return oparenthesis;
+\}   return clparenthesis;
+\(   return obracket;
+\)   return clbracket;
+\[   return opsqbracket;
+\]   return clsqbracket;
+\"   return quotation_symbol;
+_   return underscore;
+@   return at_symbol;
+=   return assign_symbol;
+,   return comma_symbol;
+AND   return and_operator;
+OR   return or_operator;
+==   return equality_symbol;
+\<=   return less_or_equal;
+>=   return greater_or_equal;
+\*   return multiply_operator;
+\+   return add_operator;
+-   return subtract_operator;
+\/   return divide_operator;
 
 %%
