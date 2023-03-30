@@ -1,3 +1,5 @@
 lex.yy.c
 *.bak
 *.exe
+*tab.c
+*tab.h

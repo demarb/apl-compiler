@@ -2,7 +2,8 @@
 
 ## Current Instructions:
 
-### Example Running lex File with flex on Windows:
-1. lex project.l
-2. gcc lex.yy.c -o project1 -lfl OR gcc lex.yy.c -o project1 -L "C:\Flex Windows\Lex\lib" -lfl 
-3. ./project1 or project1.exe
+### Example Running lex File with flex on Windows in CMD:
+1. flex project.l
+2. bison -d -o project.tab.c project.y
+3. gcc lex.yy.c project.tab.c -o project
+4. project
