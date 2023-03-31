@@ -1,5 +1,6 @@
 %{
 #include <stdio.h>
+#include <string.h>
 #include "project.tab.h"
 
 
@@ -31,14 +32,13 @@ INCOME   return income_type;
 INTEREST   return interest_type;
 
 
-\"[M|F]\"    return gender_literal;
-\"[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z]+.[a-zA-Z]+\"   return email_literal;
-\"[a-zA-Z]+([ \t]*[a-zA-Z]*)*\"   return string_literal;
+\"[M|F]\"    {yylval=strdup(yytext); return gender_literal;}
+\"[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z]+.[a-zA-Z]+\"   {yylval=strdup(yytext); return email_literal;}
+\"[a-zA-Z]+([ \t]*[a-zA-Z]*)*\"   {yylval=strdup(yytext); return string_literal;}
 [a-zA-Z_][a-zA-Z0-9_]*   return list_literal;
-\"[0-9]{10}\"   return tel_literal;
-[0-9]+   return int_literal;
-$[0-9]+(.[0-9]+)?    return income_literal;
-([\"][a-zA-Z]+[\"][,]?[ \t]*)*   return interest_literal;
+\"[0-9]{10}\"   {yylval=strdup(yytext); return tel_literal;}
+[0-9]+   {yylval=atoi(yytext); return int_literal;}
+([\"][a-zA-Z]+[\"][,]?[ \t]*)*   {yylval=strdup(yytext); return interest_literal;}
 
 
 

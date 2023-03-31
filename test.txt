@@ -1,0 +1,68 @@
+CONTACT clientList[3]
+
+WRITE("This is our client list")
+
+clientList[0] NAME= "John Doe"
+clientList[0] TEL= "8763698745"
+clientList[0] EMAIL= "J.doe@yahoo.com"
+clientList[0] GENDER= "M"
+clientList[0] AGE= 24
+clientList[0] STATE= "Westmoreland"
+clientList[0] COUNTRY= "Jamaica"
+clientList[0] JOB= "Farmer"
+clientList[0] INCOME= 2498000
+clientList[0] INTEREST= "Movies",
+
+clientList[1] NAME= "Brittany Cooke"
+clientList[1] TEL= "8769978745"
+clientList[1] EMAIL= "brit_clarke@gmail.com"
+clientList[1] GENDER= "F"
+clientList[1] AGE= 26
+clientList[1] STATE= "Westmoreland"
+clientList[1] COUNTRY= "Jamaica"
+clientList[1] JOB= "Teacher"
+clientList[1] INCOME= 7498000.45
+clientList[1] INTEREST= "Dancing", "Singing"
+
+clientList[2] NAME= "Ben Jones"
+clientList[2] TEL= "8764448745"
+clientList[2] EMAIL= "real_jones.ben@yahoo.com"
+clientList[2] GENDER= "M"
+clientList[2] AGE= 52
+clientList[2] STATE= "Florida"
+clientList[2] COUNTRY= "United States of America"
+clientList[2] JOB= "Doctor"
+clientList[2] INCOME= 24498000
+clientList[2] INTEREST= "Movies","Reading", "Hiking"
+
+
+clientList[2] INCOME= $24498000 + 200000
+clientList[2] INCOME= $24498000 / 2
+clientList[2] INCOME= $24498000 - 1800000
+clientList[2] INCOME= $24498000 * 3
+
+
+WRITE(clientList)
+
+WRITE(clientList[1])
+
+WRITE(clientList[1] NAME)
+
+WRITE(clientList[1])
+
+
+IF (STATE == "United States of America"){
+	WRITE(clientList)
+}
+
+IF (COUNTRY == "Jamaica"){
+	IF (STATE == "Westmoreland"){
+		WRITE(clientList)
+	}
+}
+
+IF (AGE<30){
+	WRITE(ClientList NAME)
+	WRITE(ClientList INCOME)
+}
+
