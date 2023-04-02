@@ -14,6 +14,21 @@ int yywrap()
 {
     return 1;
 }
+
+struct ContactLists{
+	char name[40];
+	char tel[12];
+	char email[30];
+	char gender[3];
+	int age;
+	char state[40];
+	char country[40];
+	char job[30];
+	int income;
+	char interest[120];
+};
+
+
 %}
 
 
@@ -59,14 +74,38 @@ command:
 declare_contact_list:
     contact_keyword list_literal opsqbracket int_literal clsqbracket
     {
-        printf("A contact was declared\n");
+
+	struct ContactLists contactList[$4];
+
+	strcpy(contactList[0].name, "John Doe");
+	strcpy(contactList[1].name, "Mello Mel");
+	strcpy(contactList[2].name, "Tootie frootie");
+	strcpy(contactList[3].name, "Mr. No erboe");
+	
+	for(int i=0; i<4; i++)
+	{
+		printf(" Name is: %s\n ", contactList[i].name);
+	}
+
+	
+
+	printf("A contact was declared\n");
+
     }
     ;
 
 declare_name:
     list_literal opsqbracket int_literal clsqbracket name_type assign_symbol string_literal
     {
-        printf("A name was initialized\n");
+	
+	/*--------Using contactList here doesn't work because it is out of scope
+	strcpy(contactList[$3].name, $7);
+	printf("A name was initialized: %s\n", contactList[$3].name);
+	*/
+
+
+	printf("A name was initialized");
+	
     }
     ;
 
