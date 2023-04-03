@@ -15,8 +15,8 @@ int yywrap()
     return 1;
 }
 
-struct ContactLists{
-	char name[40];
+typedef struct{
+	char name[30];
 	char tel[12];
 	char email[30];
 	char gender[3];
@@ -26,8 +26,13 @@ struct ContactLists{
 	char job[30];
 	int income;
 	char interest[120];
-};
+}contactListsStruct;
 
+
+
+contactListsStruct* contactListArr_Ptr;
+
+int arrSize;
 
 %}
 
@@ -75,19 +80,24 @@ declare_contact_list:
     contact_keyword list_literal opsqbracket int_literal clsqbracket
     {
 
-	struct ContactLists contactList[$4];
-
-	strcpy(contactList[0].name, "John Doe");
-	strcpy(contactList[1].name, "Mello Mel");
-	strcpy(contactList[2].name, "Tootie frootie");
-	strcpy(contactList[3].name, "Mr. No erboe");
+	arrSize = $4;
+	contactListArr_Ptr = malloc(arrSize * sizeof(contactListsStruct));
 	
-	for(int i=0; i<4; i++)
+	for(int i=0; i<arrSize; i++)
 	{
-		printf(" Name is: %s\n ", contactList[i].name);
+		
+		strcpy(contactListArr_Ptr[i].name, "");
+		strcpy(contactListArr_Ptr[i].tel, "");
+		strcpy(contactListArr_Ptr[i].email, "");
+		strcpy(contactListArr_Ptr[i].gender, "");
+		contactListArr_Ptr[i].age= 0;
+		strcpy(contactListArr_Ptr[i].state, "");
+		strcpy(contactListArr_Ptr[i].country, "");
+		strcpy(contactListArr_Ptr[i].job, "");
+		contactListArr_Ptr[i].income= 0;
+		strcpy(contactListArr_Ptr[i].interest, "");
 	}
 
-	
 
 	printf("A contact was declared\n");
 
@@ -97,14 +107,10 @@ declare_contact_list:
 declare_name:
     list_literal opsqbracket int_literal clsqbracket name_type assign_symbol string_literal
     {
-	
-	/*--------Using contactList here doesn't work because it is out of scope
-	strcpy(contactList[$3].name, $7);
-	printf("A name was initialized: %s\n", contactList[$3].name);
-	*/
 
+	strcpy(contactListArr_Ptr[$3].name, (char*) $7);
+	printf("A name was initialized: %s\n", contactListArr_Ptr[$3].name);
 
-	printf("A name was initialized");
 	
     }
     ;
@@ -112,63 +118,72 @@ declare_name:
 declare_tel:
     list_literal opsqbracket int_literal clsqbracket tel_type assign_symbol tel_literal
     {
-        printf("A telephone number was initialized\n");
+        strcpy(contactListArr_Ptr[$3].tel, (char*) $7);
+	printf("A telephone was initialized: %s\n", contactListArr_Ptr[$3].tel);
     }
     ;
 
 declare_email:
     list_literal opsqbracket int_literal clsqbracket email_type assign_symbol email_literal
     {
-        printf("An email was initialized\n");
+        strcpy(contactListArr_Ptr[$3].email, (char*) $7);
+	printf("A email was initialized: %s\n", contactListArr_Ptr[$3].email);
     }
     ;
 
 declare_gender:
     list_literal opsqbracket int_literal clsqbracket gender_type assign_symbol gender_literal
     {
-        printf("A gender was initialized\n");
+        strcpy(contactListArr_Ptr[$3].gender, (char*) $7);
+	printf("A gender was initialized: %s\n", contactListArr_Ptr[$3].gender);
     }
     ;
 
 declare_age:
     list_literal opsqbracket int_literal clsqbracket age_type assign_symbol int_literal
     {
-        printf("An age was initialized\n");
+        contactListArr_Ptr[$3].age= $7;
+	printf("A age was initialized: %d\n", contactListArr_Ptr[$3].age);
     }
     ;
 
 declare_state:
     list_literal opsqbracket int_literal clsqbracket state_type assign_symbol string_literal
     {
-        printf("A state was initialized\n");
+        strcpy(contactListArr_Ptr[$3].state, (char*) $7);
+	printf("A state was initialized: %s\n", contactListArr_Ptr[$3].state);
     }
     ;
 
 declare_country:
     list_literal opsqbracket int_literal clsqbracket country_type assign_symbol string_literal
     {
-        printf("A country was initialized\n");
+        strcpy(contactListArr_Ptr[$3].country, (char*) $7);
+	printf("A country was initialized: %s\n", contactListArr_Ptr[$3].country);
     }
     ;
 
 declare_job:
     list_literal opsqbracket int_literal clsqbracket job_type assign_symbol string_literal
     {
-        printf("A job was initialized\n");
+        strcpy(contactListArr_Ptr[$3].job, (char*) $7);
+	printf("A job was initialized: %s\n", contactListArr_Ptr[$3].job);
     }
     ;
 
 declare_income:
     list_literal opsqbracket int_literal clsqbracket income_type assign_symbol int_literal
     {
-        printf("An income was initialized\n");
+        contactListArr_Ptr[$3].income= $7;
+	printf("A income was initialized: $%d\n", contactListArr_Ptr[$3].income);
     }
     ;
 
 declare_interests:
     list_literal opsqbracket int_literal clsqbracket interest_type assign_symbol interest_literal 
     {
-        printf("Interests were initialized\n");
+        strcpy(contactListArr_Ptr[$3].interest, (char*) $7);
+	printf("A interest was initialized: %s\n", contactListArr_Ptr[$3].interest);
     }
     ;
 if_statement:
@@ -213,9 +228,24 @@ write_command:
 	printf("%s\n", $3);
     }
     |
+    write_keyword obracket list_literal clbracket
+    {
+	printf("CONTACTS STORED: \n");
+	for(int i=0; i<arrSize; i++)
+	{
+		printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+	}
+    }
+    |
     write_keyword obracket list_literal opsqbracket int_literal clsqbracket clbracket
     {
-        printf("Contact printed: %s[%d]\n", $3, $5);
+        printf("CONTACT REQUESTED: \n");
+	for(int i=0; i<arrSize; i++)
+	{
+		if (($5)==i){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
     }
     |
     write_keyword obracket list_literal opsqbracket int_literal clsqbracket income_type clbracket

@@ -21,7 +21,7 @@ clientList[1] AGE= 26
 clientList[1] STATE= "Westmoreland"
 clientList[1] COUNTRY= "Jamaica"
 clientList[1] JOB= "Teacher"
-clientList[1] INCOME= 7498000.45
+clientList[1] INCOME= 7498000
 clientList[1] INTEREST= "Dancing", "Singing"
 
 clientList[2] NAME= "Ben Jones"
@@ -36,12 +36,6 @@ clientList[2] INCOME= 24498000
 clientList[2] INTEREST= "Movies","Reading", "Hiking"
 
 
-clientList[2] INCOME= $24498000 + 200000
-clientList[2] INCOME= $24498000 / 2
-clientList[2] INCOME= $24498000 - 1800000
-clientList[2] INCOME= $24498000 * 3
-
-
 WRITE(clientList)
 
 WRITE(clientList[1])
@@ -49,6 +43,13 @@ WRITE(clientList[1])
 WRITE(clientList[1] NAME)
 
 WRITE(clientList[1])
+
+clientList[2] INCOME= $24498000 + 200000
+clientList[2] INCOME= $24498000 / 2
+clientList[2] INCOME= $24498000 - 1800000
+clientList[2] INCOME= $24498000 * 3
+
+
 
 
 IF (STATE == "United States of America"){
