@@ -10,10 +10,10 @@ clientList[0] GENDER= "M"
 clientList[0] STATE= "Westmoreland"
 clientList[0] COUNTRY= "Jamaica"
 clientList[0] JOB= "Farmer"
-clientList[0] INCOME= 2498000
+clientList[0] INCOME= 300000
 clientList[0] INTEREST= "Movies",
 
-clientList[1] NAME= "Brittany Cooke"
+clientList[1] NAME= "Brittany Clarke"
 clientList[1] TEL= "8769978745"
 clientList[1] EMAIL= "brit_clarke@gmail.com"
 clientList[1] GENDER= "F"
@@ -21,7 +21,7 @@ clientList[1] AGE= 26
 clientList[1] STATE= "Westmoreland"
 clientList[1] COUNTRY= "Jamaica"
 clientList[1] JOB= "Teacher"
-clientList[1] INCOME= 7498000
+clientList[1] INCOME= 600000
 clientList[1] INTEREST= "Dancing", "Singing"
 
 clientList[2] NAME= "Ben Jones"
@@ -29,10 +29,10 @@ clientList[2] TEL= "8764448745"
 clientList[2] EMAIL= "real_jones.ben@yahoo.com"
 clientList[2] GENDER= "M"
 clientList[2] AGE= 52
-clientList[2] STATE= "Florida"
+clienttList[2] STATE= "Florida"
 clientList[2] COUNTRY= "United States of America"
 clientList[2] JOB= "Doctor"
-clientList[2] INCOME= 24498000
+clientList[2] INCOME= 900000
 clientList[2] INTEREST= "Movies","Reading", "Hiking"
 
 
@@ -51,24 +51,37 @@ WRITE(clientList[1] JOB)
 WRITE(clientList[1] INCOME)
 WRITE(clientList[1] INTEREST)
 
-clientList[2] INCOME= 24498000 + 200000
-clientList[2] INCOME= 24498000 / 2
-clientList[2] INCOME= 24498000 - 1800000
-clientList[2] INCOME= 24498000 * 3
+clientList[2] INCOME= 150000 + 50000
+clientList[2] INCOME= 200000 / 2
+clientList[2] INCOME= 100000 - 1
+clientList[2] INCOME= 99999 * 8
 
 
-IF (STATE == "United States of America"){
-	WRITE(clientList)
+IF (NAME == "John Doe"){
+	WRITE("This is  a test")
 }
+
+IF (NAME == "John Doe"){WRITE("This is  a test")}
+IF (AGE == 24){WRITE("This is  a test")}
+IF (AGE > 30){WRITE("This is  a test")}
+IF (AGE < 30){WRITE("This is  a test")}
+IF (AGE >= 52){WRITE("This is  a test")}
+IF (AGE <= 24){WRITE("This is  a test")}
+IF (INCOME == 300000){WRITE("This is  a test")}
+IF (INCOME > 450000){WRITE("This is  a test")}
+IF (INCOME < 450000){WRITE("This is  a test")}
+IF (INCOME >= 600000){WRITE("This is  a test")}
+IF (INCOME <= 300000){WRITE("This is  a test")}
+IF (COUNTRY == "Jamaica"){WRITE("This is  a test")}
+IF (STATE == "Florida"){WRITE("This is  a test")}
+
+
+
+IF (EMAIL == "brit_clarke@gmail.com"){WRITE("This is  a test")}
 
 IF (COUNTRY == "Jamaica"){
 	IF (STATE == "Westmoreland"){
 		WRITE(clientList)
 	}
-}
-
-IF (AGE<30){
-	WRITE(ClientList NAME)
-	WRITE(ClientList INCOME)
 }
 

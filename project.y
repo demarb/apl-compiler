@@ -184,10 +184,6 @@ declare_income:
 
 	contactListArr_Ptr[$3].income= $7;
 	printf("A income was initialized: $%d\n", contactListArr_Ptr[$3].income);
-	
-
-
-	
     } 
 
     ;
@@ -205,13 +201,19 @@ if_statement:
     {
         printf("If statement executed\n");
     }
+     ;
+
+
+    /*
     |
     if_keyword obracket condition clbracket oparenthesis commands clparenthesis else_keyword oparenthesis commands clparenthesis
     {
         printf("If-Else statement executed\n");
     }
-    ;
+    ;*/
 
+
+/*
 condition:
     condition and_operator condition
     |
@@ -227,6 +229,143 @@ condition:
     |
     expression greater_or_equal expression
     ;
+*/
+
+
+condition:
+    name_type equality_symbol string_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if ((strcmp(contactListArr_Ptr[i].name, (char*) $3))==0){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     age_type equality_symbol int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].age == $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     age_type less_symbol int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].age < $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     age_type greater_symbol int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].age > $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     age_type less_or_equal int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].age <= $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     age_type greater_or_equal int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].age >= $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+    country_type equality_symbol string_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if ((strcmp(contactListArr_Ptr[i].country, (char*) $3))==0){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     income_type equality_symbol int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].income == $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     income_type less_symbol int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].income < $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     income_type greater_symbol int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].income > $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     income_type less_or_equal int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].income <= $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+     income_type greater_or_equal int_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if (contactListArr_Ptr[i].income >= $3){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+    |
+    state_type equality_symbol string_literal 
+    {
+	for(int i=0; i<arrSize; i++)
+	{
+		if ((strcmp(contactListArr_Ptr[i].state, (char*) $3))==0){
+			printf("%s %s %s %s %d %s %s %s %d %s\n", contactListArr_Ptr[i].name, contactListArr_Ptr[i].tel, contactListArr_Ptr[i].email, contactListArr_Ptr[i].gender, contactListArr_Ptr[i].age, contactListArr_Ptr[i].state, contactListArr_Ptr[i].country, contactListArr_Ptr[i].job, contactListArr_Ptr[i].income, contactListArr_Ptr[i].interest);
+		}
+	}
+    }
+
+
+    ;
+
 
 while_loop:
     while_keyword obracket condition clbracket oparenthesis commands clparenthesis
@@ -374,24 +513,6 @@ write_command:
 	}
     }
     ;
-
-
-/*
-expression:
-    expression add_operator expression
-    |
-    expression subtract_operator expression
-    |
-    expression multiply_operator expression
-    |
-    expression divide_operator expression
-    |
-    list_literal opsqbracket int_literal clsqbracket
-    |
-    int_literal
-    
-    ;
-*/
 
 
 expression:
