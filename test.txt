@@ -51,12 +51,10 @@ WRITE(clientList[1] JOB)
 WRITE(clientList[1] INCOME)
 WRITE(clientList[1] INTEREST)
 
-clientList[2] INCOME= $24498000 + 200000
-clientList[2] INCOME= $24498000 / 2
-clientList[2] INCOME= $24498000 - 1800000
-clientList[2] INCOME= $24498000 * 3
-
-
+clientList[2] INCOME= 24498000 + 200000
+clientList[2] INCOME= 24498000 / 2
+clientList[2] INCOME= 24498000 - 1800000
+clientList[2] INCOME= 24498000 * 3
 
 
 IF (STATE == "United States of America"){

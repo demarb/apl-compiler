@@ -179,11 +179,17 @@ declare_job:
     ;
 
 declare_income:
-    list_literal opsqbracket int_literal clsqbracket income_type assign_symbol int_literal
+    list_literal opsqbracket int_literal clsqbracket income_type assign_symbol expression
     {
-        contactListArr_Ptr[$3].income= $7;
+
+	contactListArr_Ptr[$3].income= $7;
 	printf("A income was initialized: $%d\n", contactListArr_Ptr[$3].income);
-    }
+	
+
+
+	
+    } 
+
     ;
 
 declare_interests:
@@ -369,6 +375,8 @@ write_command:
     }
     ;
 
+
+/*
 expression:
     expression add_operator expression
     |
@@ -381,9 +389,43 @@ expression:
     list_literal opsqbracket int_literal clsqbracket
     |
     int_literal
-    |
-    string_literal
+    
     ;
+*/
+
+
+expression:
+    int_literal
+    {
+	$$ = $1;
+    }
+    |
+    int_literal add_operator int_literal
+    {
+	$$ = $1 + $3;
+    }
+
+    |
+    int_literal subtract_operator int_literal
+    {
+	$$ = $1 - $3;
+    }
+
+    |
+    int_literal multiply_operator int_literal
+    {
+	$$ = $1 * $3;
+    }
+    |
+    int_literal divide_operator int_literal
+    {
+	$$ = $1 / $3;
+    }
+   
+    ;
+
+
+
 
 %%
 
