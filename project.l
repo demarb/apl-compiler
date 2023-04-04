@@ -32,6 +32,7 @@ INCOME   return income_type;
 INTEREST   return interest_type;
 
 
+
 \"[M|F]\"    {yylval=strdup(yytext); return gender_literal;}
 \"[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z]+.[a-zA-Z]+\"   {yylval=strdup(yytext); return email_literal;}
 \"[a-zA-Z]+([ \t]*[a-zA-Z]*)*\"   {yylval=strdup(yytext); return string_literal;}

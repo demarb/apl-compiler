@@ -4,9 +4,9 @@ WRITE("This is our client list")
 
 clientList[0] NAME= "John Doe"
 clientList[0] TEL= "8763698745"
+clientList[0] AGE= 24
 clientList[0] EMAIL= "J.doe@yahoo.com"
 clientList[0] GENDER= "M"
-clientList[0] AGE= 24
 clientList[0] STATE= "Westmoreland"
 clientList[0] COUNTRY= "Jamaica"
 clientList[0] JOB= "Farmer"
@@ -41,8 +41,15 @@ WRITE(clientList)
 WRITE(clientList[1])
 
 WRITE(clientList[1] NAME)
-
-WRITE(clientList[1])
+WRITE(clientList[1] TEL)
+WRITE(clientList[1] EMAIL)
+WRITE(clientList[1] GENDER)
+WRITE(clientList[1] AGE)
+WRITE(clientList[1] STATE)
+WRITE(clientList[1] COUNTRY)
+WRITE(clientList[1] JOB)
+WRITE(clientList[1] INCOME)
+WRITE(clientList[1] INTEREST)
 
 clientList[2] INCOME= $24498000 + 200000
 clientList[2] INCOME= $24498000 / 2
