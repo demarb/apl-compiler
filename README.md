@@ -4,7 +4,7 @@ Demar Brown. The language is built with a Java frontend and C backend using lexx
 
 The intent in designing the language was to create a procedural, high level language to target the contact management domain to organize, store and manage contact information.
 
-##Features
+## Features
   1. Can define a list of contacts of any length.
   2. Fields stored=> NAME, TEL, AGE, EMAIL, GENDER, STATE, COUNTRY, JOB,
   INCOME, INTEREST
