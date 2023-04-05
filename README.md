@@ -25,11 +25,11 @@ The intent in designing the language was to create a procedural, high level lang
 3. gcc lex.yy.c project.tab.c -o project
 4. project
 
-###Running Via GUI:
+### Running Via GUI:
 Options: 
   1. Browse and select .txt file with code and compile
   2. Type code directly in top section of GUI and compile.
   
   
-##Disclaimer
+## Disclaimer
 To make the language more complex, considerations would need to be made in terms of the implementation of semantics.
