@@ -29,6 +29,7 @@ The intent in designing the language was to create a procedural, high level lang
 Options: 
   1. Browse and select .txt file with code and compile
   2. Type code directly in top section of GUI and compile.
+*Preview is available. See preview.png
   
   
 ## Disclaimer
